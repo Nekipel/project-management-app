@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Header } from './components/Header/Header';
-import useTheme from './useTheme';
+import useTheme from './hooks/useTheme';
 import style from './App.module.css';
 
 function App() {
