@@ -2,6 +2,7 @@ import React from 'react';
 import style from './Header.module.css';
 import { Theme } from '../Theme/Theme';
 import { HeaderProps } from './types';
+import { Button } from '@mui/material';
 
 export const Header = ({ toggleTheme, theme }: HeaderProps) => {
   return (
@@ -11,8 +12,12 @@ export const Header = ({ toggleTheme, theme }: HeaderProps) => {
           logo
         </a>
         <div className={style.registrGroup}>
-          <button>вход</button>
-          <button>регистрация</button>
+          <Button className={style.btn} variant="contained">
+            вход
+          </Button>
+          <Button className={style.btn} variant="contained">
+            регистрация
+          </Button>
           <Theme theme={theme} toggleTheme={toggleTheme} />
         </div>
       </nav>
