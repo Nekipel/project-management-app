@@ -27,10 +27,8 @@ export const Header = ({ toggleTheme, theme }: HeaderProps) => {
           logo
         </a>
         <div className={style.registrGroup}>
-          <Button className={style.btn} variant="contained">
-            {t('sing in')}
-          </Button>
-          <Button className={style.btn} variant="contained">
+          <Button variant="contained">{t('sing in')}</Button>
+          <Button style={{ margin: 20 }} variant="contained">
             {t('sing up')}
           </Button>
           <Theme theme={theme} toggleTheme={toggleTheme} />
