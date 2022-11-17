@@ -1,0 +1,9 @@
+.dark {
+    background: linear-gradient(rgb(5 5 7 / 93%), #554a79);
+    transition: 0.3s all;
+}
+
+.light {
+    background: linear-gradient(#36b6c2, #c391e5);
+    transition: 0.3s all;
+}
