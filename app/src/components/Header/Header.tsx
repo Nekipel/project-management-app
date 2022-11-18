@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import style from './Header.module.css';
 import { Theme } from '../Theme/Theme';
 import { Button } from '@mui/material';
@@ -9,8 +9,10 @@ import { PathNavigation } from '../../enums/Navigation';
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/image/logo.svg';
 import useTheme from '../../hooks/useTheme';
+import Hamburger from '../Hamburger/Hamburger';
 
 export const Header = () => {
+  const [isActive, setIsActive] = useState<boolean>(false);
   const { theme, toggleTheme } = useTheme();
   const { t } = useTranslation();
   const [language, setLanguage] = useLocalStorage('language', 'ru');
@@ -24,22 +26,27 @@ export const Header = () => {
       setLanguage('en');
     }
   };
+
+  const onToggleMenuClick = () => {
+    setIsActive(!isActive);
+  };
+
   return (
     <header>
       <nav className={`${theme === 'dark' ? style.dark : style.light}`}>
         <div className="container">
-          <div className={`${style.navigation} ${style.active}`}>
-            <NavLink className={style.logo} to={PathNavigation.HOME}>
+          <div className={`${style.navigation} ${isActive && style.active}`}>
+            <NavLink onClick={onToggleMenuClick} className={style.logo} to={PathNavigation.HOME}>
               <img src={logo} alt="logo" />
               <span>Best Tracker</span>
             </NavLink>
 
             <div className={style.registerGroup}>
-              <NavLink to={PathNavigation.SING_IN}>
+              <NavLink onClick={onToggleMenuClick} to={PathNavigation.SING_IN}>
                 <Button variant="contained">{t('sing in')}</Button>{' '}
               </NavLink>
 
-              <NavLink to={PathNavigation.SING_UP}>
+              <NavLink onClick={onToggleMenuClick} to={PathNavigation.SING_UP}>
                 <Button style={{ margin: 20 }} className={style.btn} variant="contained">
                   {t('sing up')}
                 </Button>
@@ -58,6 +65,7 @@ export const Header = () => {
             </div>
           </div>
         </div>
+        <Hamburger isActive={isActive} setIsActive={setIsActive} />
       </nav>
     </header>
   );
