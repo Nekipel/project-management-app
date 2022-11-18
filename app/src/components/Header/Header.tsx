@@ -25,38 +25,38 @@ export const Header = () => {
     }
   };
   return (
-    <header className={`header ${theme === 'dark' ? style.dark : style.light}`}>
-      <nav className={style.navigation}>
-        <NavLink className={style.logo} to={PathNavigation.HOME}>
-          <img src={logo} alt="logo" />
-          <span>Best Tracker</span>
-        </NavLink>
+    <header>
+      <nav className={`${theme === 'dark' ? style.dark : style.light}`}>
+        <div className="container">
+          <div className={`${style.navigation} ${style.active}`}>
+            <NavLink className={style.logo} to={PathNavigation.HOME}>
+              <img src={logo} alt="logo" />
+              <span>Best Tracker</span>
+            </NavLink>
 
-        <div className={style.registerGroup}>
-          <NavLink to={PathNavigation.SING_IN}>
-            <Button variant="contained">{t('sing in')}</Button>{' '}
-          </NavLink>
+            <div className={style.registerGroup}>
+              <NavLink to={PathNavigation.SING_IN}>
+                <Button variant="contained">{t('sing in')}</Button>{' '}
+              </NavLink>
 
-          <NavLink to={PathNavigation.SING_UP}>
-            <Button
-              style={{ marginLeft: 20, marginRight: 20 }}
-              className={style.btn}
-              variant="contained"
-            >
-              {t('sing up')}
-            </Button>
-          </NavLink>
+              <NavLink to={PathNavigation.SING_UP}>
+                <Button style={{ margin: 20 }} className={style.btn} variant="contained">
+                  {t('sing up')}
+                </Button>
+              </NavLink>
 
-          <Theme theme={theme} toggleTheme={toggleTheme} />
+              <Theme theme={theme} toggleTheme={toggleTheme} />
 
-          <Button
-            style={{ marginLeft: 20 }}
-            onClick={handleChangeLanguage}
-            variant="contained"
-            color="secondary"
-          >
-            {t('lang')}
-          </Button>
+              <Button
+                style={{ margin: 20 }}
+                onClick={handleChangeLanguage}
+                variant="contained"
+                color="secondary"
+              >
+                {t('lang')}
+              </Button>
+            </div>
+          </div>
         </div>
       </nav>
     </header>
