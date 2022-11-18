@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import style from './Header.module.css';
 import { Theme } from '../Theme/Theme';
-import { HeaderProps } from './types';
 import { Button } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import i18n from '../../i18n/i18n';
+import { PathNavigation } from '../../enums/Navigation';
+import { NavLink } from 'react-router-dom';
+import logo from '../../assets/image/logo.svg';
+import useTheme from '../../hooks/useTheme';
+import Hamburger from '../Hamburger/Hamburger';
 
-export const Header = ({ toggleTheme, theme }: HeaderProps) => {
+export const Header = () => {
+  const [isActive, setIsActive] = useState<boolean>(false);
+  const { theme, toggleTheme } = useTheme();
   const { t } = useTranslation();
   const [language, setLanguage] = useLocalStorage('language', 'ru');
 
@@ -20,20 +26,46 @@ export const Header = ({ toggleTheme, theme }: HeaderProps) => {
       setLanguage('en');
     }
   };
+
+  const onToggleMenuClick = () => {
+    setIsActive(!isActive);
+  };
+
   return (
-    <header className={style.header}>
-      <nav className={style.navigation}>
-        <a className={style.logo} href="#">
-          logo
-        </a>
-        <div className={style.registrGroup}>
-          <Button variant="contained">{t('sing in')}</Button>
-          <Button style={{ margin: 20 }} variant="contained">
-            {t('sing up')}
-          </Button>
-          <Theme theme={theme} toggleTheme={toggleTheme} />
-          <button onClick={handleChangeLanguage}>{t('lang')}</button>
+    <header>
+      <nav className={`${theme === 'dark' ? style.dark : style.light}`}>
+        <div className="container">
+          <div className={`${style.navigation} ${isActive && style.active}`}>
+            <NavLink onClick={onToggleMenuClick} className={style.logo} to={PathNavigation.HOME}>
+              <img src={logo} alt="logo" />
+              <span>Best Tracker</span>
+            </NavLink>
+
+            <div className={style.registerGroup}>
+              <NavLink onClick={onToggleMenuClick} to={PathNavigation.SING_IN}>
+                <Button variant="contained">{t('sing in')}</Button>{' '}
+              </NavLink>
+
+              <NavLink onClick={onToggleMenuClick} to={PathNavigation.SING_UP}>
+                <Button style={{ margin: 20 }} className={style.btn} variant="contained">
+                  {t('sing up')}
+                </Button>
+              </NavLink>
+
+              <Theme theme={theme} toggleTheme={toggleTheme} />
+
+              <Button
+                style={{ margin: 20 }}
+                onClick={handleChangeLanguage}
+                variant="contained"
+                color="secondary"
+              >
+                {t('lang')}
+              </Button>
+            </div>
+          </div>
         </div>
+        <Hamburger isActive={isActive} setIsActive={setIsActive} />
       </nav>
     </header>
   );
