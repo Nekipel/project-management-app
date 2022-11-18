@@ -1,14 +1,20 @@
 import React from 'react';
 import './App.css';
 import { Header } from './components/Header/Header';
-import useTheme from './hooks/useTheme';
-import style from './App.module.css';
+import { ROUTES } from './constants/routes';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
-  const { theme, toggleTheme } = useTheme();
   return (
-    <div className={`App ${theme === 'dark' ? style.dark : style.light}`}>
-      <Header theme={theme} toggleTheme={toggleTheme} />
+    <div className={`App`}>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          {ROUTES.map((route) => (
+            <Route key={route.id} path={route.path} element={route.element} />
+          ))}
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
