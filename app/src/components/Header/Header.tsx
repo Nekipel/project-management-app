@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import style from './Header.module.css';
 import { Theme } from '../Theme/Theme';
 import { Button } from '@mui/material';
@@ -10,9 +10,10 @@ import { NavLink } from 'react-router-dom';
 import logo from '../../assets/image/logo.svg';
 import useTheme from '../../hooks/useTheme';
 import Hamburger from '../Hamburger/Hamburger';
+import { Context } from '../../hooks/context';
 
 export const Header = () => {
-  const [isActive, setIsActive] = useState<boolean>(false);
+  const { isActive, setIsActive } = useContext(Context);
   const { theme, toggleTheme } = useTheme();
   const { t } = useTranslation();
   const [language, setLanguage] = useLocalStorage('language', 'ru');

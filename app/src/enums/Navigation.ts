@@ -1,5 +1,5 @@
 export enum PathNavigation {
-  HOME = '/',
+  HOME = '/project-management-app/app',
   SING_IN = '/sing-in',
   SING_UP = '/sing-up',
   ERROR = '/*',
