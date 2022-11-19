@@ -3,12 +3,14 @@
     position: relative;
 }
 
-.inner {
-    padding: 133px 0 80px;
-    background-image: url("../../../assets/image/home/best tracker/top-bg.svg");
-    background-repeat: no-repeat;
-    background-position: bottom right;
-    text-align: left;
+.wrapper {
+    padding: 50px 0 80px;
+    /*background-image: url("../../../assets/image/home/best tracker/top-bg.svg");*/
+    /*background-repeat: no-repeat;*/
+    /*background-position: bottom right;*/
+    /*text-align: left;*/
+    display: flex;
+    align-items: center;
 }
 
 .title {
@@ -27,40 +29,6 @@
     max-width: 460px;
 
 }
-
-.top__btn {
-    display: inline-block;
-    font-size: 16px;
-    line-height: 24px;
-    background-color: #ff9900;
-    border-radius: 4px;
-    color: #ffffff;
-    padding: 15px 41px 14px;
-    margin-right: 30px;
-    border: none;
-}
-
-.top__link {
-    display: inline-block;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
-    text-decoration-line: underline;
-    color: #ff9900;
-    padding-left: 25px;
-    position: relative;
-}
-
-.top__link::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 2px;
-    width: 17px;
-    height: 19px;
-    background-image: url("../../../assets/image/home/best tracker/top-bg.svg");
-}
-
 .btn,.btn2 {
     padding: 10px 25px;
     font-size: 20px;
