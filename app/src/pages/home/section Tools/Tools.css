@@ -1,0 +1,51 @@
+.tools {
+  padding-top: 130px;
+}
+.toolsTitle {
+  text-align: center;
+  max-width: 539px;
+  margin: 0 auto 46px;
+  font-size: 36px;
+  line-height: 54px;
+  font-weight: 700;
+  padding: 0 10px;
+}
+
+.toolsInner {
+  padding-bottom: 90px;
+  background-image: url("../../../assets/image/home/tools/tools-bg.svg");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
+}
+
+.toolsItems {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+  padding: 8px 16px 0;
+}
+
+.toolsItem {
+  width: 240px;
+}
+
+.toolsItemImg {
+  margin-bottom: 30px;
+}
+
+.toolsItemTitle {
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 33px;
+  margin-bottom: 13px;
+}
+.toolsItemText{
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+}
+.board{
+  width: 150px;
+  height: 150px;
+}
