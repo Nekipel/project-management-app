@@ -7,12 +7,14 @@ import superHero2 from '../../../assets/image/home/blog/superhero2.svg';
 import superHero3 from '../../../assets/image/home/blog/superhero3.svg';
 import gitHub from '../../../assets/image/home/blog/github.svg';
 import './Blog.css';
+import { useTranslation } from 'react-i18next';
 
 const Blog = () => {
+  const { t } = useTranslation();
   return (
     <section className="blog">
       <div className="container">
-        <h1 className="blogTitle">Hard workers</h1>
+        <h1 className="blogTitle">{t('hard workers')}</h1>
         <div className="blogWrapper">
           <div className="item">
             <img src={blog1} alt="blog images" className="itemImg" />

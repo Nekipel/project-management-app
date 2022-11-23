@@ -5,36 +5,34 @@ import tools3 from '../../../assets/image/home/tools/tools-3.svg';
 import tools4 from '../../../assets/image/home/tools/tools-4.svg';
 import board from '../../../assets/image/home/tools/board.svg';
 import './Tools.css';
+import { useTranslation } from 'react-i18next';
 const Tools = () => {
+  const { t } = useTranslation();
   return (
     <section className="tools">
-      <h3 className="toolsTitle title">We develop tools to unlock your superpowers</h3>
       <div className="toolsInner">
         <div className="container">
+          <h3 className="toolsTitle title">{t('tools title')}</h3>
           <div className="toolsItems">
             <div className="toolsItem">
               <img src={tools1} className="toolsItemImg" alt="tools img" />
-              <h5 className="toolsItemTitle title">First click</h5>
-              <p className="toolsItemText">
-                From the first click you will understand that this is the best product.
-              </p>
+              <h5 className="toolsItemTitle title">{t('tools click')}</h5>
+              <p className="toolsItemText">{t('tools click text')}</p>
             </div>
             <div className="toolsItem">
               <img src={tools2} className="toolsItemImg" alt="tools img" />
-              <h5 className="toolsItemTitle title">Feedback</h5>
-              <p className="toolsItemText"> We are always happy to help you.</p>
+              <h5 className="toolsItemTitle title">{t('tools feedback')}</h5>
+              <p className="toolsItemText">{t('tools feedback text')}</p>
             </div>
             <div className="toolsItem">
               <img src={tools3} className="toolsItemImg" alt="tools img" />
-              <h5 className="toolsItemTitle title">Community</h5>
-              <p className="toolsItemText">
-                Can be customized to suit the needs of a particular organization.
-              </p>
+              <h5 className="toolsItemTitle title">{t('tools community')}</h5>
+              <p className="toolsItemText">{t('tools community text')}</p>
             </div>
             <div className="toolsItem">
               <img src={tools4} className="toolsItemImg" alt="tools img" />
-              <h5 className="toolsItemTitle title">Сommon cause</h5>
-              <p className="toolsItemText">The choice and responsibility of each person.</p>
+              <h5 className="toolsItemTitle title">{t('tools common')}</h5>
+              <p className="toolsItemText">{t('tools common text')}</p>
             </div>
           </div>
         </div>
