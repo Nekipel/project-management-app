@@ -44,11 +44,17 @@ export const Header = () => {
 
             <div className={style.registerGroup}>
               <NavLink onClick={onToggleMenuClick} to={PathNavigation.SING_IN}>
-                <Button variant="contained">{t('sing in')}</Button>{' '}
+                <Button style={{ width: 100 }} variant="contained">
+                  {t('sing in')}
+                </Button>{' '}
               </NavLink>
 
               <NavLink onClick={onToggleMenuClick} to={PathNavigation.SING_UP}>
-                <Button style={{ margin: 20 }} className={style.btn} variant="contained">
+                <Button
+                  style={{ margin: 20, width: 130 }}
+                  className={style.btn}
+                  variant="contained"
+                >
                   {t('sing up')}
                 </Button>
               </NavLink>
