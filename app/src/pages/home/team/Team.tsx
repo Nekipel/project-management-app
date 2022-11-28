@@ -10,6 +10,20 @@ import { Button } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Context } from '../../../hooks/context';
+import { motion } from 'framer-motion';
+
+const textAnimation = {
+  hidden: {
+    x: -100,
+    opacity: 0,
+  },
+  visible: (custom: number) => ({
+    x: 0,
+    opacity: 1,
+    transition: { delay: custom * 0.2 },
+  }),
+};
+
 const Team = () => {
   const { t } = useTranslation();
   const { isActive, setIsActive } = useContext(Context);
@@ -17,9 +31,14 @@ const Team = () => {
     setIsActive(!isActive);
   };
   return (
-    <section className="team">
+    <motion.section
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      className="team"
+    >
       <div className="container">
-        <div className="teamInner">
+        <motion.div custom={4} variants={textAnimation} className="teamInner">
           <div className="teamItem teamItem1">
             <img className="teamItem-img" src={team1} alt="name" />
             <p className="teamItemText teamItemTextRight">{t('team best option')}</p>
@@ -54,9 +73,9 @@ const Team = () => {
               </Button>{' '}
             </NavLink>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
