@@ -28,7 +28,7 @@ const Blog = () => {
     <motion.section
       initial="hidden"
       whileInView="visible"
-      viewport={{ amount: 0.2, once: true }}
+      viewport={{ amount: 0.4, once: true }}
       className="blog"
     >
       <motion.div custom={2} variants={textAnimation} className="container">
