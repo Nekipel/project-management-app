@@ -1,6 +1,5 @@
 .tools {
-  padding-top: 130px;
-  padding-bottom: 90px;
+  padding: 130px 10px 90px;
   background-image: url("../../../assets/image/home/tools/tools-bg.svg");
   background-repeat: no-repeat;
   background-position: center bottom;
@@ -54,6 +53,9 @@
   }
 }
 @media(max-width: 760px){
+  .tools{
+    padding-top: 30px;
+  }
   .toolsItem {
     width: 150px ;
     margin-top: 40px;
