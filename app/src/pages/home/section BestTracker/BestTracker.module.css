@@ -1,5 +1,5 @@
 .top {
-    padding-top: 100px;
+    padding: 100px 10px 0;
     position: relative;
 }
 
@@ -113,5 +113,11 @@
 @media(max-width: 450px){
     .text {
        display: none;
+    }
+    .btn,.btn2{
+        margin-left: 10px;
+    }
+    .directionItemImg{
+        width: 290px;
     }
 }

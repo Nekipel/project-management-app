@@ -1,6 +1,7 @@
-header{
+header {
     padding-bottom: 80px;
 }
+
 nav {
     position: fixed;
     width: 100%;
@@ -58,6 +59,9 @@ nav {
 }
 
 @media (max-width: 560px) {
+    header {
+        padding-bottom: 0;
+    }
 
     .navigation {
         position: fixed;
