@@ -5,12 +5,17 @@
 .inner{
     margin: 0 auto;
     text-align: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
 }
 .inner a{
     display: block;
-    margin: 0 auto;
     padding: 25px;
     color: #282c34;
     font-weight: 600;
     font-size: 24px;
+}
+.Logo{
+    width: 75px;
 }

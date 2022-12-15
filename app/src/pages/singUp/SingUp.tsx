@@ -34,6 +34,7 @@ const SingUp = () => {
       </div>
       <input type="submit" />
     </form>
+
   );
 };
 

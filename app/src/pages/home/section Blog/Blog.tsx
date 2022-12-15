@@ -7,12 +7,32 @@ import superHero2 from '../../../assets/image/home/blog/superhero2.svg';
 import superHero3 from '../../../assets/image/home/blog/superhero3.svg';
 import gitHub from '../../../assets/image/home/blog/github.svg';
 import './Blog.css';
+import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
+
+const textAnimation = {
+  hidden: {
+    y: 100,
+    opacity: 0,
+  },
+  visible: (custom: number) => ({
+    y: 0,
+    opacity: 1,
+    transition: { delay: custom * 0.2 },
+  }),
+};
 
 const Blog = () => {
+  const { t } = useTranslation();
   return (
-    <section className="blog">
-      <div className="container">
-        <h1 className="blogTitle">Hard workers</h1>
+    <motion.section
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ amount: 0.4, once: true }}
+      className="blog"
+    >
+      <motion.div custom={2} variants={textAnimation} className="container">
+        <h1 className="blogTitle">{t('hard workers')}</h1>
         <div className="blogWrapper">
           <div className="item">
             <img src={blog1} alt="blog images" className="itemImg" />
@@ -43,8 +63,8 @@ const Blog = () => {
             </a>
           </div>
         </div>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 };
 

@@ -1,12 +1,15 @@
 import React from 'react';
 import './Footer.css';
+import rs from '../../assets/image/footer/rs_school_js.svg';
+
 const Footer = () => {
   return (
     <div className="wrapper">
       <div className="container">
         <div className="inner">
-          <a className="link" href="https://app.rs.school/">
-            Rolling Scopes School
+          <span>©2022</span>
+          <a className="link" href="https://rs.school/react/">
+            <img className="Logo" src={rs} alt="rsscholl" />
           </a>
         </div>
       </div>

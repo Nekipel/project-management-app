@@ -1,5 +1,5 @@
 .direction {
-  padding: 130px 0 100px;
+  padding: 130px 10px 100px;
 }
 
 .directionItem {
@@ -38,22 +38,29 @@
   font-size: 20px;
   line-height: 28px;
 }
-
-/*.direction__list {*/
-/*  list-style: none;*/
-/*}*/
-
-/*.direction__list-item {*/
-/*  padding-bottom: 30px;*/
-/*  padding-left: 65px;*/
-/*  position: relative;*/
-/*}*/
-/*.direction__list-item::before {*/
-/*  content: "";*/
-/*  position: absolute;*/
-/*  top: 9px;*/
-/*  left: 0;*/
-/*  width: 35px;*/
-/*  height: 35px;*/
-/*  background-image: url(../images/chek.svg);*/
-/*}*/
+@media(max-width: 1005px){
+  .directionItem img{
+    width: 400px;
+  }
+}
+@media(max-width: 705px){
+  .direction {
+    padding-bottom: 0;
+  }
+  .directionItem{
+    flex-wrap: wrap;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+  }
+}
+@media(max-width: 410px){
+  .directionItem img{
+    width: 300px;
+  }
+  .direction{
+    padding-top: 0;
+  }
+}
