@@ -2,6 +2,7 @@ import React, { ChangeEventHandler, useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import './SingUp.module.css';
 import classForm from './SingUp.module.css';
+import Parse from 'parse';
 interface IFormInput {
   login: string;
   password: string;
@@ -10,6 +11,18 @@ interface IFormInput {
 }
 
 const SingUp = () => {
+  async function addUser(data: IFormInput) {
+    const user: Parse.User = new Parse.User();
+    user.set('name', data.name);
+    user.set('username', data.login);
+    user.set('password', data.password);
+    try {
+      const userResult: Parse.User = await user.signUp();
+      console.log('User signed up', userResult);
+    } catch (error) {
+      console.error('Error while signing up user', error);
+    }
+  }
   const [typePassword, setTypePassword] = useState('password');
   const showPassword: ChangeEventHandler = () => {
     if (typePassword === 'password') {
@@ -18,8 +31,11 @@ const SingUp = () => {
       setTypePassword('password');
     }
   };
-  const { register, handleSubmit } = useForm<IFormInput>();
-  const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
+  const { register, handleSubmit, reset } = useForm<IFormInput>();
+  const onSubmit: SubmitHandler<IFormInput> = (data) => {
+    addUser(data);
+    reset();
+  };
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="form">
       <label>Name</label>
