@@ -14,7 +14,6 @@ interface IFormInput {
 
 const SingUp = () => {
   const navigate = useNavigate();
-
   async function addUser(data: IFormInput) {
     const user: Parse.User = new Parse.User();
     user.set('name', data.name);

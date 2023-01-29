@@ -14,7 +14,6 @@ interface IFormInput {
 const SingIn = () => {
   const [typePassword, setTypePassword] = useState('password');
   const navigate = useNavigate();
-
   const showPassword: ChangeEventHandler = () => {
     if (typePassword === 'password') {
       setTypePassword('text');
