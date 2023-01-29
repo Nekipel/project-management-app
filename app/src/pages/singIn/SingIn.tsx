@@ -2,6 +2,8 @@ import React, { ChangeEventHandler, useState } from 'react';
 import classForm from '../singUp/SingUp.module.css';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import Parse from 'parse';
+import { PathNavigation } from '../../enums/Navigation';
+import { useNavigate } from 'react-router-dom';
 interface IFormInput {
   login: string;
   password: string;
@@ -11,6 +13,7 @@ interface IFormInput {
 
 const SingIn = () => {
   const [typePassword, setTypePassword] = useState('password');
+  const navigate = useNavigate();
   const showPassword: ChangeEventHandler = () => {
     if (typePassword === 'password') {
       setTypePassword('text');
@@ -31,6 +34,7 @@ const SingIn = () => {
       // console.log(password);
       // console.log(objectId);
       console.log('Logged in user', user);
+      navigate(PathNavigation.LAYOUT);
       // console.log(user.getUsername());
       // console.log(user.id);
     } catch (error) {

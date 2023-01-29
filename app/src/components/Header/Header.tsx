@@ -57,21 +57,27 @@ export const Header = (props: HeaderProps) => {
             </NavLink>
 
             <div className={style.registerGroup}>
-              <NavLink onClick={onToggleMenuClick} to={PathNavigation.SING_IN}>
-                <Button style={{ width: 100 }} variant="contained">
-                  {t('sing in')}
-                </Button>{' '}
-              </NavLink>
+              {false ? (
+                <p>Exit</p>
+              ) : (
+                <>
+                  <NavLink onClick={onToggleMenuClick} to={PathNavigation.SING_IN}>
+                    <Button style={{ width: 100 }} variant="contained">
+                      {t('sing in')}
+                    </Button>{' '}
+                  </NavLink>
 
-              <NavLink onClick={onToggleMenuClick} to={PathNavigation.SING_UP}>
-                <Button
-                  style={{ margin: 20, width: 130 }}
-                  className={style.btn}
-                  variant="contained"
-                >
-                  {t('sing up')}
-                </Button>
-              </NavLink>
+                  <NavLink onClick={onToggleMenuClick} to={PathNavigation.SING_UP}>
+                    <Button
+                      style={{ margin: 20, width: 130 }}
+                      className={style.btn}
+                      variant="contained"
+                    >
+                      {t('sing up')}
+                    </Button>
+                  </NavLink>
+                </>
+              )}
 
               <Theme theme={theme} toggleTheme={toggleTheme} />
 
